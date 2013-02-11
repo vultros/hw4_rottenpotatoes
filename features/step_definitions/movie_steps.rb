@@ -9,6 +9,7 @@ Given /the following movies exist/ do |movies_table|
   #flunk "Unimplemented"
 end
 
+
 # Make sure that one string (regexp) occurs before or after another one
 #   on the same page
 
@@ -95,5 +96,10 @@ Then /I should see (no|all)? movies/ do |no_all|
   count = count + 1
   row_count = page.all('table#movies tr').count
   page.all('table#movies tr').count.should == count
+end
+
+
+Then /the director of "([^"]*)" should be "([^"]*)"$/ do |movie, director|
+  assert page.body =~ /#{movie}.*Director.*#{director}/m
 end
 
