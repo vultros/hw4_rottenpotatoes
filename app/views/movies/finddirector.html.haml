@@ -1,0 +1,18 @@
+
+%h2 Similar Movies for #{@movie.title}
+
+
+%table#same_director_moview
+  %thead
+    %tr
+      %th Title 
+      %th Rating
+      %th Release Date
+  %tbody
+    - @same_director_movies.each do |movie|
+      %tr
+        %td= movie.title 
+        %td= movie.rating
+        %td= movie.release_date
+
+= link_to 'Back to movie list', movies_path
